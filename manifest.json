@@ -1,0 +1,7 @@
+{
+  "name": "vaadin_elements_test",
+  "short_name": "vaadin_elements_test",
+  "description": "vaadin test elements",
+  "start_url": "/",
+  "display": "standalone"
+}

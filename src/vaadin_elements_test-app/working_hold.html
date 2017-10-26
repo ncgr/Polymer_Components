@@ -1,0 +1,65 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/vaadin-material-theme/vaadin-date-picker.html">
+<link rel="import" href="../../bower_components/vaadin-material-theme/vaadin-grid.html">
+<link rel="import" href="../../bower_components/vaadin-date-picker/vaadin-date-picker.html">
+<link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="vaadin_elements_test-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h1>Testing Vaadin Elements [[prop1]]!</h1>
+    <h2>Date Picker Check</h2>
+    <vaadin-date-picker label="From" value="{{from}}"></vaadin-date-picker>
+    <vaadin-date-picker label="To" value="{{to}}"></vaadin-date-picker>
+    <iron-ajax
+      url="https://api.github.com/users/vaadin/repos"
+      params='{"type":"all"}'
+      handle-as="json"
+      last-response="{{repodata}}"
+      auto>
+    </iron-ajax>
+    <vaadin-grid items="[[repodata]]">
+      <vaadin-grid-column>      
+        <template class="header">Repo name</template>      
+        <template>[[item.full_name]]</template>
+      </vaadin-grid-column>
+      <vaadin-grid-column>
+        <template class="header">URL</template>
+        <template>[[item.html_url]]</template>    
+      </vaadin-grid-column>    
+      <vaadin-grid-column>      
+        <template class="header">Description</template>      
+        <template>[[item.description]]</template>    
+      </vaadin-grid-column> 
+    </vaadin-grid>
+    <p>
+      you have selected range [[from]] to [[to]]
+    </p>
+    
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class Vaadin_elements_testApp extends Polymer.Element {
+      static get is() { return 'vaadin_elements_test-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'vaadin_elements_test-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(Vaadin_elements_testApp.is, Vaadin_elements_testApp);
+  </script>
+</dom-module>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>vaadin_elements_test</title>
+    <meta name="description" content="vaadin test elements">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="/src/vaadin_elements_test-app/vaadin_elements_test-app.html">
+  </head>
+  <body>
+    <vaadin_elements_test-app foo_test='{"t1" : 1, "t2" : 2}' foo_complex='{"header" : ["Col 1", "Col 2"], "rows" : [1, 2]}' foo_complex2='[{"Col 1" : 1, "Col 2" : 5}, {"Col 1" : 2, "Col 2" : 15}, {"Col 2" : 3, "Col 1" : 20}, {"Col 2" : 4}]'></vaadin_elements_test-app>
+  </body>
+  <script>
+    var test_global_str = 'bar'
+  </script>
+</html>
